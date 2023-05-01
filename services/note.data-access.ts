@@ -5,44 +5,41 @@ export class NoteDataAccess {
   constructor(public db?: Datastore) {
     const options =
       process.env.DB_TYPE === "FILE"
-        ? { filename: "./data/notes.db", autoload: true }
+        ? { filename: "./data/db.db", autoload: true }
         : {};
 
     this.db = db || Datastore.create(options);
   }
 
-  async add(
-    title: string,
-    importance: number,
-    dueDate: Date,
-    finished: boolean,
-    description: string
-  ): Promise<Note> {
-    const note = new Note(title, importance, dueDate, finished, description);
-    console.log(note);
-    return this.db!.insert(note);
+  async save(note: Note) {
+    if (note._id) {
+      await this.db!.update({ _id: note._id }, { $set: note });
+      return this.get(note._id);
+    } else {
+      return await this.db!.insert(note) as unknown as Note;
+    }
   }
 
-  async update(
-    id: string,
-    title: string,
-    importance: number,
-    dueDate: Date,
-    finished: boolean,
-    description: string
-  ): Promise<Document> {
-    const newNote = new Note(title, importance, dueDate, finished, description);
-    await this.db!.update({ _id: id }, { $set: newNote });
-
-    return this.get(id);
+  async get(id: string): Promise<Note> {
+    return this.db!.findOne({ _id: id }) as unknown as Note;
   }
 
-  async get(id: string): Promise<Document> {
-    return this.db!.findOne({ _id: id });
-  }
-
-  async all(): Promise<Note[]> {
+  async all(orderByParam?: string, asc = true): Promise<Note[]> {
+    if (orderByParam) {
+      const orderBy = orderByParam as keyof Note;
+      const orderDirection = asc ? 1 : -1;
+      return this.db!.find<Note>({}).sort({ [orderBy]: orderDirection });
+    }
     return this.db!.find<Note>({});
+  }
+
+  async deleteById(id: string) {
+    if (!id) {
+      return;
+    }
+    await this.db!.remove({ _id: id }, {
+      multi: false
+    });
   }
 }
 

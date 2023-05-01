@@ -1,34 +1,47 @@
 <section>
+
+    <form action="/">
+        <button id="overview-button" type="submit">🔙</button>
+    </form>
     <form action="" method="post">
         <div>
             <label for="title-input">Title</label>
-            <input id="title-input" name="title" type="text" placeholder="Enter title">
+            <input id="title-input" name="title" value="{{title}}" type="text" placeholder="Enter title">
         </div>
-
         <div>
             <label for="importance-input">Importance</label>
-            <input id="importance-input" name="importance" type="number" min="1" max="5">
+            <input id="importance-input" value="{{importance}}" name="importance" type="number" min="1" max="5">
         </div>
 
         <div>
             <label for="due-date-input">Due Date</label>
-            <input id="due-date-input" name="due-date" type="date">
+            <input id="due-date-input" value="{{date_input dueDate}}" name="dueDate" type="date">
         </div>
 
         <label for="finished-checkbox">
-            <input id="finished-checkbox" name="finished" type="checkbox">
+            <input id="finished-checkbox" {{#if finished}}checked{{/if}} name="finished" type="checkbox">
             Finished
         </label>
 
         <div>
             <label for="description-input">Description</label>
-            <textarea id="description-input" name="description" rows="5"></textarea>
+            <textarea id="description-input" name="description" rows="5">{{description}}</textarea>
         </div>
 
         <div class="notes-page-buttons-row button-list">
-            <button id="update-button" type="submit">Update</button>
-            <button id="update-overview-button" type="submit">Update & Overview</button>
-            <button id="overview-button" type="submit">Overview</button>
+            <button id="update-button" type="submit">
+                {{#if isNew}}
+                Create
+                {{else}}
+                Update
+                {{/if}}
+            </button>
+            <button id="update-overview-button" type="submit">{{#if isNew}}
+                Create
+                {{else}}
+                Update
+                {{/if}} & Overview</button>
+
         </div>
     </form>
 </section>

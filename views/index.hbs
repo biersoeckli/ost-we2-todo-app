@@ -9,25 +9,25 @@
 
     <div class="filter-row">
         <div class="filter-row-pull-left button-list">
-            <form action="">
+            <form action="/?orderBy=title&asc={{neg asc}}" method="post">
                 <button class="btn btn-primary" type="submit">Name</button>
             </form>
 
-            </form action="">
+            <form action="/?orderBy=dueDate&asc={{neg asc}}" method="post">
                 <button class="btn btn-primary" type="submit">By Due Date</button>
             </form>
 
-            </form action="">
+            <form action="/?orderBy=createdAt&asc={{neg asc}}" method="post">
                 <button class="btn btn-primary" type="submit">By Creation Date</button>
             </form>
 
-            </form action="">
+            <form action="/?orderBy=importance&asc={{neg asc}}" method="post">
                 <button class="btn btn-primary" type="submit">By Importance</button>
             </form>
         </div>
 
         <div class="filter-row-pull-right">
-            <form>
+            <form action="/?orderBy={{orderBy}}&asc={{neg asc}}&filterCompleted={{neg filterCompleted}}" method="post">
                 <button class="btn btn-primary" type="submit">Filter completed</button>
             </form>
         </div>
@@ -35,40 +35,45 @@
     </div>
 
     <div class="notes-row">
+        {{#if (neg data.length)}}
+            Zurzeit sind keine Todos vorhanden.
+        {{/if}}
         {{#each data}}
-            <article class="note">
+        <article class="note">
 
-                <div class="note-due">
-                    <div class="">
-                        {{to_date_string this.dueDate}}
-                    </div>
+            <div class="note-due">
+                <div class="">
+                    {{date this.dueDate}}
+                </div>
+                <div class="">
+                    <input type="checkbox" {{#if finished}}checked{{/if}} disabled>
+                </div>
+            </div>
 
-                    <div class="">
-                        <input type="checkbox">
-                    </div>
+            <div class="note-content">
+                <div>
+                    {{this.title}}
                 </div>
 
-                <div class="note-content">
-                    <div>
-                        {{this.title}}
-                    </div>
-
-                    <div>
-                        {{this.description}}
-                    </div>
+                <div>
+                    {{this.description}}
                 </div>
+            </div>
 
-                <div class="note-prio">
-                    {{#each this.importance}}
-                        🚀
-                    {{/each}}
-                </div>
+            <div class="note-prio">
+                {{this.importance}}
+            </div>
 
-                <div class="note-edit">
-                    <a class="btn btn-primary" href="/notes/{{this._id}}">Edit</a>
-                </div>
-            </article>
+            <div class="note-edit">
+                <a class="btn btn-primary" href="/notes?id={{this._id}}">Edit</a>
+            </div>
+
+            <div class="note-edit">
+                <form action="/notes/delete?id={{this._id}}" method="post">
+                    <button class="btn btn-primary" type="submit">Delete</button>
+                </form>
+            </div>
+        </article>
         {{/each}}
-
     </div>
 </section>

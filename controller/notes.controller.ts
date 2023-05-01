@@ -1,42 +1,39 @@
 import { Request, Response } from "express";
 import { noteDataAccess } from "../services/note.data-access";
+import { Note } from "../models/note.model";
+import { DateUtils } from "../utils/date.utils";
 
 export class NotesController {
-  createNote = (req: Request, res: Response): void => {
-    res.render("note");
+  getNote = async (req: Request, res: Response) => {
+    if (req.query.id) {
+      const existingNote = await noteDataAccess.get(req.query.id as string);
+      res.render("note", {
+        ...existingNote,
+        isNew: false,
+      });
+    } else {
+      res.render("note", {
+        isNew: true,
+      });
+    }
   };
 
-  newNote = async (req: Request, res: Response): Promise<void> => {
-    console.log(req);
+  saveNote = async (req: Request, res: Response): Promise<void> => {
 
-    res.render(
-      "note",
-      await noteDataAccess.add(
-        req.body.title,
-        req.body.importance,
-        req.body.dueDate,
-        !!req.body.finished,
-        req.body.description
-      )
-    );
+    const note = req.query.id ? await noteDataAccess.get(req.query.id as string) : new Note();
+    note.title = req.body.title;
+    note.importance = +req.body.importance;
+    note.dueDate = DateUtils.parseDateFromDateInput(req.body.dueDate);
+    note.finished = !!req.body.finished;
+    note.description = req.body.description;
+    await noteDataAccess.save(note)
+    res.redirect(`/`);
   };
 
-  editNote = async (req: Request, res: Response): Promise<void> => {
-    res.render(
-      "note",
-      await noteDataAccess.update(
-        req.params.id,
-        req.body.title,
-        req.body.importance,
-        req.body.dueDate,
-        req.body.finished,
-        req.body.description
-      )
-    );
+  deleteNote = async (req: Request, res: Response): Promise<void> => {
+    await noteDataAccess.deleteById(req.query.id as string)
+    res.redirect(`/`);
   };
 
-  showNote = async (req: Request, res: Response): Promise<void> => {
-    res.render("note", await noteDataAccess.get(req.params.id));
-  };
 }
 export const notesController = new NotesController();

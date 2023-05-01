@@ -4,10 +4,11 @@
     "target": "es2020",
     "rootDir": "./",
     "outDir": "build",
-    "sourceMap": true,
+    "sourceMap": false,
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "strict": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["./public"]
 }

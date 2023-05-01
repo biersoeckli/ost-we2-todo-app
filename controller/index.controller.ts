@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { noteDataAccess } from "../services/note.data-access";
+import { Note } from "../models/note.model";
 
 export class IndexController {
   async index(req: Request, res: Response) {
@@ -18,6 +19,14 @@ export class IndexController {
       asc: asc,
       filterCompleted: filterCompleted,
       dark: false,
+      sortProperties: [
+        ['_id', 'ID'],
+        ['title', 'Title'],
+        ['description', 'Description'],
+        ['finished', 'Finished'],
+        ['createdAt', 'Created At'],
+        ['updatedAt', 'Updated At']
+      ]
     });
   }
 

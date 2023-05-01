@@ -8,13 +8,16 @@ export const helpers = {
             return opts.inverse(this);
         }
     },
-    date_input: function (a: Date, opts: any) {
+    date_input: function (a: Date) {
         return DateUtils.toDateInputString(a);
     },
-    date: function (a: Date, opts: any) {
+    date: function (a: Date) {
         return DateUtils.toDateString(a);
     },
-    neg: function (a: boolean, opts: any) {
+    neg: function (a: boolean) {
         return !a;
-    }
+    },
+    getItemOfList: function (list: any[], index: number) {
+        return list[index];
+    },
 }

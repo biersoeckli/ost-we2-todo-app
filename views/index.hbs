@@ -9,21 +9,11 @@
 
     <div class="filter-row">
         <div class="filter-row-pull-left button-list">
-            <form action="/?orderBy=title&asc={{neg asc}}" method="post">
-                <button class="btn btn-primary" type="submit">Name</button>
+            {{#each sortProperties}}
+            <form action="/?orderBy={{getItemOfList this 0}}=title&asc={{neg asc}}" method="post">
+                <button class="btn btn-primary" type="submit">{{getItemOfList this 1}}</button>
             </form>
-
-            <form action="/?orderBy=dueDate&asc={{neg asc}}" method="post">
-                <button class="btn btn-primary" type="submit">By Due Date</button>
-            </form>
-
-            <form action="/?orderBy=createdAt&asc={{neg asc}}" method="post">
-                <button class="btn btn-primary" type="submit">By Creation Date</button>
-            </form>
-
-            <form action="/?orderBy=importance&asc={{neg asc}}" method="post">
-                <button class="btn btn-primary" type="submit">By Importance</button>
-            </form>
+            {{/each}}
         </div>
 
         <div class="filter-row-pull-right">
@@ -36,7 +26,7 @@
 
     <div class="notes-row">
         {{#if (neg data.length)}}
-            Zurzeit sind keine Todos vorhanden.
+        Zurzeit sind keine Todos vorhanden.
         {{/if}}
         {{#each data}}
         <article class="note">

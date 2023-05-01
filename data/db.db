@@ -1,9 +1,1 @@
-{"createdAt":{"$$date":1682935788461},"title":"test2","importance":5,"dueDate":{"$$date":1683064800000},"finished":true,"description":"meow2","_id":"LcQ7Q3PPLX5lbXfg"}
-{"createdAt":{"$$date":1682936543548},"title":"test1","importance":2,"dueDate":{"$$date":1685138400000},"finished":false,"description":"sdfasfasdfasdf","_id":"qYayeZTheLG1R2uS"}
-{"createdAt":{"$$date":1682935788461},"importance":null,"finished":false,"_id":"LcQ7Q3PPLX5lbXfg"}
-{"createdAt":{"$$date":1682935788461},"importance":null,"finished":false,"_id":"LcQ7Q3PPLX5lbXfg"}
-{"createdAt":{"$$date":1682935788461},"importance":null,"finished":false,"_id":"LcQ7Q3PPLX5lbXfg"}
-{"$$deleted":true,"_id":"LcQ7Q3PPLX5lbXfg"}
-{"$$deleted":true,"_id":"qYayeZTheLG1R2uS"}
-{"createdAt":{"$$date":1682938618249},"title":"asd<ad","importance":0,"finished":false,"description":"","_id":"5m6iQL0H0K3d02sP"}
-{"$$deleted":true,"_id":"5m6iQL0H0K3d02sP"}
+{"createdAt":{"$$date":1682939048287},"title":"adsfasdfa","importance":2,"dueDate":{"$$date":1683583200000},"finished":false,"description":"asdfasdfasdf","_id":"sY08mqIZMUqcAV1G"}

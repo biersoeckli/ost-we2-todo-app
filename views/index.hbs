@@ -7,31 +7,47 @@
         </form>
     </div>
 
-    <div class="filter-row">
-        <div class="filter-row-pull-left button-list">
-            {{#each sortProperties}}
-            <form action="/?orderBy={{getItemOfList this 0}}=title&asc={{neg asc}}" method="post">
-                <button class="btn btn-primary" type="submit">{{getItemOfList this 1}}</button>
-            </form>
-            {{/each}}
-        </div>
-
-        <div class="filter-row-pull-right">
-            <form action="/?orderBy={{orderBy}}&asc={{neg asc}}&filterCompleted={{neg filterCompleted}}" method="post">
-                <button class="btn btn-primary" type="submit">Filter completed</button>
+    <div class="flex mt-2">
+        {{#each sortProperties}}
+        <div class="flex-1">
+            <form action="/?orderBy={{getItemOfList this 0}}&asc={{neg ../asc}}&filterCompleted={{../filterCompleted}}"
+                method="post">
+                <button class="btn btn-secondary" type="submit">{{ evalArrow ../orderBy (getItemOfList this 0)
+                    ../asc}}{{getItemOfList this 1}}</button>
             </form>
         </div>
-
+        {{/each}}
     </div>
 
-    <div class="notes-row">
+    <div class="flex mt-2">
+        <div class="">
+            <form action="/?orderBy={{orderBy}}&asc={{asc}}&filterCompleted={{threeStateSwitch filterCompleted}}"
+                method="post">
+                <button class="btn btn-secondary" type="submit">Filter completed</button>
+            </form>
+        </div>
+        <div class="flex-1">
+            {{#if_eq filterCompleted "false"}}
+            Filter: <div class="chip">
+                not finished todos
+            </div>
+            {{/if_eq}}
+            {{#if_eq filterCompleted "true"}}
+            Filter: <div class="chip">
+                finished todos
+            </div>
+            {{/if_eq}}
+        </div>
+    </div>
+
+
+    <div class="mt-2">
         {{#if (neg data.length)}}
-        Zurzeit sind keine Todos vorhanden.
+        No Tasks available.
         {{/if}}
         {{#each data}}
-        <article class="note">
-
-            <div class="note-due">
+        <article class="flex note-box">
+            <div class="flex-1">
                 <div class="">
                     {{date this.dueDate}}
                 </div>
@@ -40,27 +56,22 @@
                 </div>
             </div>
 
-            <div class="note-content">
-                <div>
-                    {{this.title}}
-                </div>
-
-                <div>
-                    {{this.description}}
-                </div>
+            <div class="flex-1">
+                {{this.title}}<br>
+                {{this.description}}
             </div>
 
-            <div class="note-prio">
+            <div class="flex-1">
                 {{this.importance}}
             </div>
 
-            <div class="note-edit">
+            <div class="flex-1">
                 <a class="btn btn-primary" href="/notes?id={{this._id}}">Edit</a>
             </div>
 
-            <div class="note-edit">
+            <div class="flex-1">
                 <form action="/notes/delete?id={{this._id}}" method="post">
-                    <button class="btn btn-primary" type="submit">Delete</button>
+                    <button class="btn btn-warn" type="submit">Delete</button>
                 </form>
             </div>
         </article>

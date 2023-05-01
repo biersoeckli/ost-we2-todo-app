@@ -2,3 +2,7 @@ body {
     background-color: #fafafa;
     color: #333;
 }
+
+.chip {
+    background-color: #007bff28;
+}

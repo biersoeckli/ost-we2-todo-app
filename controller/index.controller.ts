@@ -5,41 +5,36 @@ import { Note } from "../models/note.model";
 export class IndexController {
   async index(req: Request, res: Response) {
     const asc = req.query.asc === 'true';
-    const filterCompleted = req.query.filterCompleted === 'true';
-    let data = await noteDataAccess.all(req.query.orderBy as string, req.query.asc === 'true');
+    let data = await noteDataAccess.all(req.query.orderBy as string, asc);
     if (req.query.filterCompleted === 'true') {
       data = data.filter((note) => note.finished);
     }
     if (req.query.filterCompleted === 'false') {
       data = data.filter((note) => !note.finished);
     }
+
     res.render("index", {
       data,
       orderBy: req.query.orderBy ?? '_id',
-      asc: asc,
-      filterCompleted: filterCompleted,
+      asc,
+      filterCompleted: req.query.filterCompleted,
       dark: false,
       sortProperties: [
         ['_id', 'ID'],
         ['title', 'Title'],
         ['description', 'Description'],
         ['finished', 'Finished'],
-        ['createdAt', 'Created At'],
-        ['updatedAt', 'Updated At']
+        ['createdAt', 'Created At']
       ]
     });
   }
 
   async orderByRedirect(req: Request, res: Response) {
-    let direction = false;
-    if (req.query.asc) {
-      direction = req.query.asc === 'true';
+    let filterQuery = '';
+    if (req.query.filterCompleted !== '') {
+      filterQuery = `&filterCompleted=${req.query.filterCompleted}`;
     }
-    if (req.query.filterCompleted) {
-      res.redirect(`/?orderBy=${req.query.orderBy}&asc=${direction}&filterCompleted=${req.query.filterCompleted}`);
-      return;
-    }
-    res.redirect(`/?orderBy=${req.query.orderBy}&asc=${direction}`);
+    res.redirect(`/?orderBy=${req.query.orderBy}&asc=${req.query.asc}${filterQuery}`);
   }
 }
 

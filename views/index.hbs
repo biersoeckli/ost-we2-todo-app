@@ -1,0 +1,74 @@
+<section id="todo-index">
+    <div class="create-todo-row">
+        <form action="notes">
+            <button class="btn btn-primary" id="create-todo-btn" type="submit">
+                Create new todo
+            </button>
+        </form>
+    </div>
+
+    <div class="filter-row">
+        <div class="filter-row-pull-left button-list">
+            <form action="">
+                <button class="btn btn-primary" type="submit">Name</button>
+            </form>
+
+            </form action="">
+                <button class="btn btn-primary" type="submit">By Due Date</button>
+            </form>
+
+            </form action="">
+                <button class="btn btn-primary" type="submit">By Creation Date</button>
+            </form>
+
+            </form action="">
+                <button class="btn btn-primary" type="submit">By Importance</button>
+            </form>
+        </div>
+
+        <div class="filter-row-pull-right">
+            <form>
+                <button class="btn btn-primary" type="submit">Filter completed</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="notes-row">
+        {{#each data}}
+            <article class="note">
+
+                <div class="note-due">
+                    <div class="">
+                        {{to_date_string this.dueDate}}
+                    </div>
+
+                    <div class="">
+                        <input type="checkbox">
+                    </div>
+                </div>
+
+                <div class="note-content">
+                    <div>
+                        {{this.title}}
+                    </div>
+
+                    <div>
+                        {{this.description}}
+                    </div>
+                </div>
+
+                <div class="note-prio">
+                    {{#each this.importance}}
+                        🚀
+                    {{/each}}
+                </div>
+
+                <div class="note-edit">
+                    <a class="btn btn-primary" href="/notes/{{this._id}}">Edit</a>
+                </div>
+            </article>
+        {{/each}}
+
+    </div>
+</section>

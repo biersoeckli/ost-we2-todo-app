@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles/theme-switch.css" />
+        <link rel="stylesheet" href="styles/global.css" />
+        <title>TODO App 🚀</title>
+        {{#if dark}}
+            <link rel="stylesheet" href="styles/dark.css" />
+        {{else}}
+            <link rel="stylesheet" href="styles/light.css" />
+        {{/if}}
+    </head>
+    <body>
+        <div class="parent">
+            <header>
+                <a href="/">
+                    <h1>Note taking App</h1>
+                </a>
+
+                <div class="theme-switch-area">
+
+                    <label for="theme-switch" class="gui-switch">
+                        Theme
+                        <input type="checkbox" role="switch" id="theme-switch">
+                    </label>
+                </div>
+            </header>
+
+            <main>
+                {{{body}}}
+            </main>
+        </div>
+    </body>
+</html>

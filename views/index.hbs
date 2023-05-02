@@ -1,13 +1,6 @@
-<section id="todo-index">
-    <div class="create-todo-row">
-        <form action="notes">
-            <button class="btn btn-primary" id="create-todo-btn" type="submit">
-                Create new todo
-            </button>
-        </form>
-    </div>
+<section>
 
-    <div class="flex mt-2">
+    <div class="md:flex mt-2">
         {{#each sortProperties}}
         <div class="flex-1">
             <form action="/?orderBy={{getItemOfList this 0}}&asc={{neg ../asc}}&filterCompleted={{../filterCompleted}}"
@@ -52,7 +45,9 @@
                     {{date this.dueDate}}
                 </div>
                 <div class="">
-                    <input type="checkbox" {{#if finished}}checked{{/if}} disabled>
+                    <a href="/toggleTask?noteId={{this._id}}" class="no-underline">
+                        {{showCheckbox this.finished}}
+                    </a>
                 </div>
             </div>
 
@@ -66,7 +61,9 @@
             </div>
 
             <div class="flex-1">
-                <a class="btn btn-primary" href="/notes?id={{this._id}}">Edit</a>
+                <form>
+                    <a class="btn btn-primary" href="/notes?id={{this._id}}">Edit</a>
+                </form>
             </div>
 
             <div class="flex-1">
@@ -77,4 +74,11 @@
         </article>
         {{/each}}
     </div>
+    <form action="notes" class="no-flex mt-2">
+        <button class="btn btn-primary" type="submit">
+            Create new todo
+        </button>
+    </form>
+
+
 </section>

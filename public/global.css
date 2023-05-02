@@ -50,6 +50,12 @@ label {
     display: flex;
 }
 
+@media (min-width: 767px) {
+    .md\:flex {
+        display: flex;
+    }
+}
+
 .flex-gap-1 {
     gap: 1em;
 }
@@ -100,6 +106,10 @@ form>div {
     margin-bottom: 1em;
 }
 
+.no-flex {
+    display: block;
+}
+
 form>div>input,
 textarea {
     width: 100%;
@@ -115,29 +125,6 @@ textarea {
 .mt-2 {
     margin-top: 1.5rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-/* todo cleanup css after this comment */
-
-.note-box {
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-top: 1rem;
-}
-
-
-
-
 
 .btn {
     text-decoration: none;
@@ -187,63 +174,16 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+.note-box {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
 }
 
-.btn-primary:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+.text-lg {
+    font-size: 20px;
 }
-
-.btn-primary:focus,
-.btn-primary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-}
-
-.btn-primary.disabled,
-.btn-primary:disabled {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active,
-.btn-primary:not(:disabled):not(.disabled).active,
-.show>.btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #0062cc;
-    border-color: #005cbf;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active:focus,
-.btn-primary:not(:disabled):not(.disabled).active:focus,
-.show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-}
-
-.btn-secondary {
-    color: #007bff;
-    background-color: transparent;
-    border: 2px dotted #007bff;
-    border-color: #007bff;
-}
-
-.btn-secondary:hover {
-    color: #007bff;
-    border: 2px solid #007bff;
-}
-
-.btn-warn {
-    color: #ff3007;
-    background-color: transparent;
-    border: 2px solid #ff3007;
-    border-color: #ff3007;
-}
-
-.btn-warn:hover {
-    background-color: #ff300713;
+.no-underline {
+    text-decoration: none;
 }

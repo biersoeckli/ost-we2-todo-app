@@ -39,12 +39,18 @@ export const helpers = {
         if (a === false + '') {
             return true;
         }
-        
+
     },
     getItemOfList: (list: any[], index: number) => {
         return list[index];
     },
     notUndefined: (a: any) => {
         return a !== undefined && a !== null;
+    },
+    sunOrMoon: (a: boolean) => {
+        return a ? '🌙' : '🌞';
+    },
+    showCheckbox: (a: boolean) => {
+        return a ? '☑️' : '❌';
     }
 }

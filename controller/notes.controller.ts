@@ -10,6 +10,7 @@ export class NotesController {
       res.render("note", {
         ...existingNote,
         isNew: false,
+        darkTheme: req.settings.darkTheme
       });
     } else {
       res.render("note", {

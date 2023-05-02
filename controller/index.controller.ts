@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { noteDataAccess } from "../services/note.data-access";
 import { Note } from "../models/note.model";
+import { Session, SessionData } from "express-session";
+import { Settings } from "../utils/session-middleware.index";
 
 export class IndexController {
   async index(req: Request, res: Response) {
@@ -18,7 +20,7 @@ export class IndexController {
       orderBy: req.query.orderBy ?? '_id',
       asc,
       filterCompleted: req.query.filterCompleted,
-      dark: false,
+      darkTheme: req.settings.darkTheme,
       sortProperties: [
         ['_id', 'ID'],
         ['title', 'Title'],
@@ -35,6 +37,19 @@ export class IndexController {
       filterQuery = `&filterCompleted=${req.query.filterCompleted}`;
     }
     res.redirect(`/?orderBy=${req.query.orderBy}&asc=${req.query.asc}${filterQuery}`);
+  }
+
+  async switchTheme(req: Request, res: Response) {
+    const session = (req.session as Session & {settings: Settings});
+    session.settings.darkTheme = !session.settings.darkTheme;
+    res.redirect(`/`);
+  }
+  
+  async toggleTask(req: Request, res: Response) {
+    const note = await noteDataAccess.get(req.query.noteId as string);
+    note.finished = !note.finished;
+    await noteDataAccess.save(note);
+    res.redirect(`/`);
   }
 }
 

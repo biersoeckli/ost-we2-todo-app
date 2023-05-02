@@ -5,7 +5,7 @@ import path from "path";
 import bodyParser from "body-parser";
 import { indexRoutes } from "./routes/index.routes";
 import { helpers } from "./utils/handlebar.utils";
-import { Settings } from "./utils/session-middleware.index";
+import { Settings, sessionUserSettings } from "./utils/session-middleware.index";
 import { noteRoutes } from "./routes/note.routes";
 
 declare module "express-session" {
@@ -43,6 +43,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use((req, res, next) => sessionUserSettings(req, res, next));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

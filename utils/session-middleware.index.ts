@@ -6,24 +6,13 @@ export const sessionUserSettings = (
   next: NextFunction
 ) => {
   const userSettings = req.session?.settings || {
-    orderBy: "title",
-    orderDirection: -1,
-    //style: Style.Light,
+    darkTheme: false,
   };
-  const { orderBy, orderDirection } = req.query;
-
-  if (orderBy) {
-    userSettings.orderBy = orderBy.toString();
-  }
-  if (orderDirection) {
-    userSettings.orderDirection = parseInt(orderDirection.toString());
-  }
 
   req.settings = req.session.settings = userSettings;
-  return;
+  next();
 };
 
 export interface Settings {
-  orderBy: string;
-  orderDirection: number;
+  darkTheme: boolean;
 }

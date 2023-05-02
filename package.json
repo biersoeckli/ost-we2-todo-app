@@ -10,7 +10,7 @@
     "test": "mocha -r ts-node/register 'tests/**/*.ts'",
     "lint": "tsc --noEmit && eslint . --ext .ts"
   },
-  "author": "mgfeller",
+  "author": "biersoeckli",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

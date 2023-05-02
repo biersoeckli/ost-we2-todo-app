@@ -6,3 +6,38 @@ body {
 .chip {
     background-color: #007bff28;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-secondary {
+    color: #007bff;
+    background-color: transparent;
+    border: 2px dotted #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary:hover {
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.btn-warn {
+    color: #ff3007;
+    background-color: transparent;
+    border: 2px solid #ff3007;
+    border-color: #ff3007;
+}
+
+.btn-warn:hover {
+    background-color: #ff300713;
+}

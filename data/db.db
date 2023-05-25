@@ -1,17 +1,13 @@
 {"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":false,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":true,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
+{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":false,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
 {"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":true,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
 {"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":false,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
 {"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":true,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
 {"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":false,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":false,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":true,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":false,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":true,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":false,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":true,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":false,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":true,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":false,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":true,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
-{"createdAt":{"$$date":1683013530049},"title":"Test 2","importance":1,"dueDate":{"$$date":1684965600000},"finished":false,"description":"wuffwuffwuffwuff","_id":"aCZamcvS5jKvO62N"}
+{"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":true,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
+{"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":false,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
+{"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":true,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
+{"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":false,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
+{"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":true,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
+{"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":false,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}
+{"createdAt":{"$$date":1683013515516},"title":"Hello","importance":1,"dueDate":{"$$date":1684360800000},"finished":true,"description":"ich liebe das","_id":"3NfZTUbzNjBa10AZ"}

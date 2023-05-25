@@ -22,10 +22,11 @@ export class IndexController {
       filterCompleted: req.query.filterCompleted,
       darkTheme: req.settings.darkTheme,
       sortProperties: [
-        ['_id', 'ID'],
         ['title', 'Title'],
         ['description', 'Description'],
+        ['importance', 'Importance'],
         ['finished', 'Finished'],
+        ['dueDate', 'Due Date'],
         ['createdAt', 'Created At']
       ]
     });

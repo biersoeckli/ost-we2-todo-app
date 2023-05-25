@@ -4,7 +4,7 @@
   "description": "Vorlage",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "npx ts-node index.ts",
     "dev": "ts-node-dev index.ts",
     "build": "rimraf ./build && tsc",
     "test": "mocha -r ts-node/register 'tests/**/*.ts'",

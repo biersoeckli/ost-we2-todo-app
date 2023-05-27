@@ -15,6 +15,7 @@ export class NotesController {
     } else {
       res.render("note", {
         isNew: true,
+        darkTheme: req.settings.darkTheme
       });
     }
   };
